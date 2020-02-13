@@ -1,0 +1,13 @@
+VFP debug with 1286348
+
+
+
+AFT FTF
+RtTableTrioFeatureList::change
+removeFeature -> unbind
+
+needInstall
+needReinstall
+
+1945 Bel Air Ave
+San Jose, CA 95126

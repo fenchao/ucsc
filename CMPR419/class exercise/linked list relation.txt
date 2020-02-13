@@ -1,0 +1,40 @@
+node {
+	<T> data;
+	node * next; // default null
+	node * other; // default null
+}
+
+
+node * deepCopy(const node * head) {
+	if (!head) {
+		return nullptr;
+	}
+	
+	node dummy(0);
+	node * prev = &dummy;
+	
+	unordered_map <node *, node *> map;
+	int index = 0;
+	
+	while(head) {
+		prev->next = new node(head->data);		
+		prev = prev->next;
+		
+		map1[head] = prev;
+		map2[index] = prev;
+		
+		head = head->next;
+		
+		++index;
+	}
+	prev->next = nullptr;
+	
+	prev = dummy.next;
+	while(head) {
+		prev->other = map[head->other];
+		head = head->next;
+		prev = prev->next;
+	}
+	
+	return dummy.next;
+}

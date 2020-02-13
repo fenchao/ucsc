@@ -1,0 +1,380 @@
+table forwarding filter
+bindFilter - ftf , iff eg
+
+needBindNode -> false
+updateFilterToken
+aftman
+
+RtTableFeature - class
+
+separate .h RtTableFeatures.h
+
+already getParam, need addFeature (key)
+
+add/remove feature,
+gtest
+
+
+
+needInstall, needRe-install, check if needed
+
+
+sb make aft-pkg PLATFORM=wr7-64b
+
+
+
+
+Initialize Test Env                                                   ...Running in Lag_mode:0
+Initialize Test Env                                                   | PASS |
+------------------------------------------------------------------------------
+Base Config Verification:                                             | PASS |
+------------------------------------------------------------------------------
+Verify Connectivity with Host Ping:                                   .Running with Router tester:1
+Verify Connectivity with Host Ping:                                   | FAIL |
+
+
+
+
+2. Various match and action conditions are marked as FRS+ in FS. Are those implemented/supported for RLI 39491 ? I believe we should update with RLI number or branch where support is implemented.
+3. Some action and match conditions have empty FRS plan column. Can same be updated as implemented/supported ?
+4. Egress filters are supported or not ?
+-already in caveats
+5. Is telemetry support available ?
+- not supported 
+6. RLI mentions only 1 platform ptx1000. Only 1 platform to be qualified 
+-already mentioned in platform supported
+
+
+
+
+port-mirror - manjunath
+
+policer vmx - santosh commands
+
+unbindFilter no params
+
+
+_dfwFilterBPInstMap
+
+
+
+[edit]
+root@10.49.124.255# show interfaces
+xe-0/0/1:2 {
+    unit 0 {
+        family inet6 {
+            address 1000::1/64;
+        }
+    }
+}
+xe-0/0/1:3 {
+    unit 0 {
+        family inet6 {
+            address 2000::1/64 {
+                ndp 2000::2 
+                 00:00:00:00:01:00;
+            }
+        }
+    }
+}
+
+topology:
+RT(port1) 1000::2 - DUT(xe-0/0/1:2) 1000::1
+DUT(xe-0/0/1:3) 2000::1 - RT(port1) 2000::2
+
+
+work
+v4
+in/out
+protocol
+
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 0: sp = 0xdf21b938, pc = 0x90f9a10
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 1: sp = 0xdf21b978, pc = 0x838b136
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 2: sp = 0xdf21bc48, pc = 0x8b81d59
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 3: sp = 0xdf21bcf8, pc = 0x8bb6535
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 4: sp = 0xdf21bd98, pc = 0x8b6eed4
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 5: sp = 0xdf21bf88, pc = 0x8be780f
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 6: sp = 0xdf21bfa8, pc = 0x9026e15
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 7: sp = 0xdf21bff8, pc = 0x809f476
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 8: sp = 0xdeb11fd8, pc = 0x90f6895
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 9: sp = 0xdeb11ff8, pc = 0x809f476
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 10: sp = 0xfff61ae8, pc = 0x90f84ca
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 11: sp = 0xfff61b08, pc = 0x90fefb5
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 12: sp = 0xfff61b28, pc = 0x8061b73
+
+Message from syslogd@wf-mt-bond at Aug  3 17:38:52  ...
+wf-mt-bond fpc3 Frame 13: sp = 0xfff61b48, pc = 0xf74f2743
+
+
+
+
+
+dfwdlib_compile_client_filters
+dfwd_process_implicit_filters->dfwd_compile_implicit_filter->dfwd_fls_compile_fragment
+
+2127 Jul 16 07:28:06  dfwd_fls_compile_fragment implicit_filter match type 10, dfw match type 5
+10 == IMPLICIT_FILTER_MATCH_FRAGMENT_FLAGS
+5 == DIP_FRAGMENT_FIELD
+
+dfwdlib_compile_client_filters
+
+dfwd_process_implicit_filters->dfwd_compile_implicit_filter->dfwd_fls_compile_fragment
+
+
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] RT : addFeature Bind forwarding table filter index: 2, featureToken: 1834, rtt token: 1152
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] RT : addFeature adding entry for ingress ftf feature, index: 1, token: 1834
+Jul 31 06:47:31 localhost user.err aftd-trio: [Error] RT : Unable to add ingress ftf feature, index: 1, token: 1834
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] RT : addFeature Unbind forwarding table filter index: 3, oldFeatureToken: 1833, rtt token: 1152
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] DFW Freed Filter Instance Successfully Token:1833
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] DFW Deleting Bind Point to Instance Index:3 Instance-Token:1833 Bind-Point Type:RtTable Bind-Point Value:1152 Bind-Point Token:4294967295
+Jul 31 06:47:31 localhost user.debug aftd-trio: [Debug] DFW Bind Point removal from a filter is successfull bindPointTknValue:1152bindPointType:2filterType:0filterIdx:3pfeMask:0x0FilterInstToken:1833
+Jul 31 06:47:31 localhost user.err aftd-trio: [Error] RT : Unable to add ingress ftffeature
+
+
+
+root@dut_mpc0> show firewall
+Name            Filter-index    Token
+__default_bpdu_filter__         1               1545
+f               2               1546
+__default_arp_policer__         17000           1368
+fnp-filter-level-all            16777216                1544
+
+root@dut_mpc0> show firewall counter index 2
+Name        Packets         Bytes
+c           0               0
+
+root@dut_mpc0> show firewall instance index 2
+
+root@dut_mpc0> show route table proto 2
+
+IPv4 Route Tables:
+Table Name                         Index   Routes   Size(b)   Token
+--------------------------------- ------- -------- --------- -------
+default.0                         0             15       600    1210
+__juniper_private1__.1            1              5       200    1236
+__juniper_private2__.2            2              6       240    1253
+__juniper_services__.4            4              9       360    1402
+__master.anon__.5                 5              5       200    1456
+__pfe_private__.7                 7              5       200    1528
+__juniper_private4__.36736        36736          5       200    1270
+
+root@dut_mpc0> show sandbox token 1210
+AftNode   : AftIndexedList token:1210 group:0 nodeMask:0xffffffffffffffff max:9
+JnhHandle : JnhHandleIndexedList Jnh:0x82645ec00000000 PfeInst:ff Paddr:0x0 Vaddr:0x0 AppType:NH
+JNH decode:
+CallNH:desc_ptr:0x9917b, mode=0, count=0x1
+  0x099173  0 : 0x1810308246800000
+
+Flattened table:
+AftIndex     FlattenedIndex     token
+3            0                  1209
+Previous nodes count: 8
+Next nodes count    : 0
+Entries count       : 1
+
+
+
+pbuilder --toby /volume/regressions/toby/test-suites/sanity/pfe/params/trio/vmxzt/sanity_vmxzt_spirent.pl.params
+
+
+
+
+==========
+Sudipto implicitFilterIndex ??? 
+addFeature << make before break
+
+==========
+
+1346610-> build debug image
+
+toby first!!!
+
+delete forwarding-options
+
+rttParams:
+input, output, inputFlood, outputFlood
+
+=== add firewall ===
+set firewall family inet filter FDU term t then count ffdduu
+root@dut_mpc0> show firewall
+Name            Filter-index    Token
+__default_bpdu_filter__         1               1368
+FDU             2               1745
+__default_arp_policer__         17000           1369
+fnp-filter-level-all            16777216                1543
+
+
+=== bind firewall ===
+set forwarding-options family inet filter input FDU
+
+(gdb) p params
+$6 = (const RttParams &) @0x7f6ee036c200: {_rttPtr = 0x7f6ed9929c10, _ftfIndices = {_M_elems = {2, 0, 0, 0}}}
+(gdb) p params->_rttPtr <<< add
+$7 = (const RtTable *) 0x7f6ed9929c10
+(gdb) p * params->_rttPtr
+$8 = {_vptr.RtTable = 0x7f6eed7ff790 <vtable for RtTableTrio<RtTable>+16>, _index = 0, _proto = 2 '\002',
+  _flags = 0, _name = {static npos = <optimized out>,
+    _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0x7f6ed9929cd8 "default"}}, _rttToken = 1209, _discardToken = 0, _rtCount = 6,
+  _ftfIndexInput = 2, _ftfIndexOutput = 0, _ftfImplicitInput = 0, _rtTree = {_root = {root = {
+        inode = 0x7f6ed992f720, rnode = 0x7f6ed992f720}, prefix_is_ptr = 1, prefix_offset = 0,
+      external_nodes = 6, internal_nodes = 4, attached_nodes = 2,
+      radix_attach_alloc = 0x7f6eefd47af0 <radix2::port_radix_attach_alloc()>,
+      radix_attach_free = 0x7f6eefd47b00 <radix2::port_radix_attach_free(radix2::rinode_*)>,
+      radix_noattach_alloc = 0x7f6eefd47b10 <radix2::port_radix_noattach_alloc()>,
+      radix_noattach_free = 0x7f6eefd47b20 <radix2::port_radix_noattach_free(radix2::rinode_*)>}},
+  mutexRtTable = {<std::__mutex_base> = {_M_mutex = {__data = {__lock = 0, __count = 0, __owner = 0,
+          __nusers = 0, __kind = 0, __spins = 0, __elision = 0, __list = {__prev = 0x0, __next = 0x0}},
+        __size = '\000' <repeats 39 times>, __align = 0}}, <No data fields>}}
+
+=== delete ===
+[edit]
+root@10.49.124.255# delete forwarding-options
+Breakpoint 10, RtTableImplicitIngressFTFFeature::needInstall (this=0x6175d0, params=..., trioFeatureList=...)
+    at ../../include/RtTableFtf.h:79
+79      ../../include/RtTableFtf.h: No such file or directory.
+(gdb) p params
+$10 = (const RttParams &) @0x7f6ee036c200: {_rttPtr = 0x7f6ed9929c10, _ftfIndices = {_M_elems = {0, 0, 0,
+      0}}}
+(gdb) p * params->_rttPtr
+$12 = {_vptr.RtTable = 0x7f6eed7ff790 <vtable for RtTableTrio<RtTable>+16>, _index = 0, _proto = 2 '\002',
+  _flags = 0, _name = {static npos = <optimized out>,
+    _M_dataplus = {<std::allocator<char>> = {<__gnu_cxx::new_allocator<char>> = {<No data fields>}, <No data fields>}, _M_p = 0x7f6ed9929cd8 "default"}}, _rttToken = 1209, _discardToken = 0, _rtCount = 6,
+  _ftfIndexInput = 0, _ftfIndexOutput = 0, _ftfImplicitInput = 0, _rtTree = {_root = {root = {
+        inode = 0x7f6ed992f720, rnode = 0x7f6ed992f720}, prefix_is_ptr = 1, prefix_offset = 0,
+      external_nodes = 6, internal_nodes = 4, attached_nodes = 2,
+      radix_attach_alloc = 0x7f6eefd47af0 <radix2::port_radix_attach_alloc()>,
+      radix_attach_free = 0x7f6eefd47b00 <radix2::port_radix_attach_free(radix2::rinode_*)>,
+      radix_noattach_alloc = 0x7f6eefd47b10 <radix2::port_radix_noattach_alloc()>,
+      radix_noattach_free = 0x7f6eefd47b20 <radix2::port_radix_noattach_free(radix2::rinode_*)>}},
+  mutexRtTable = {<std::__mutex_base> = {_M_mutex = {__data = {__lock = 0, __count = 0, __owner = 0,
+          __nusers = 0, __kind = 0, __spins = 0, __elision = 0, __list = {__prev = 0x0, __next = 0x0}},
+        __size = '\000' <repeats 39 times>, __align = 0}}, <No data fields>}}
+        
+        
+Verify Input Filter FTF attach Point
+
+Verify if FTF works for inet6
+-- Configuration required
+dut:
+  CONFIG:
+    chassis:
+      - network-services enhanced-ip
+    routing-instances var['rttName']:
+      - instance-type virtual-router
+      - interface var['rttIntfName']
+    firewall:
+      # Interface filter
+      - family inet6 filter var['ftfFilterName'] term t1 then count ftf
+      - family inet6 filter var['ftfFilterName'] term t1 then accept
+
+-- Attach this filter to the var['rttName']
+-- Send traffic to ingress interface on which the filter var['ftfFilterName'] is attached
+    -- Verify that corresponding fw counters are incrementing 
+-- detach this filter from the rtt.
+-- Send traffic to ingress interface on which the filter var['ftfFilterName'] was attached
+    -- Verify that corresponding fw counters are not incrementing
+
+
+one more bug -- garbage values in addMsg
+
+-- Configuration required
+dut:
+  CONFIG:
+    chassis:
+      - network-services enhanced-ip
+    routing-instances var['rttName']:
+      - instance-type virtual-router
+      - interface var['rttIntfName']
+    firewall:
+      # Interface filter
+      - family inet filter var['ftfFilterName'] term t1 then count ftf
+      - family inet filter var['ftfFilterName'] term t1 then accept
+
+-- Attach this filter to the var['rttName']
+-- Send traffic to ingress interface on which the filter var['ftfFilterName'] is attached
+    -- Verify that corresponding fw counters are incrementing 
+-- detach this filter from the rtt.
+-- Send traffic to ingress interface on which the filter var['ftfFilterName'] was attached
+    -- Verify that corresponding fw counters are not incrementing
+        
+        <bindFilter>
+=====
+Breakpoint 2, 0x0000000000418260 in DfwFilterBindPoint::bindFilter(unsigned long, unsigned int, AftFilterBindPoint::BindType, unsigned int, AftFilterBindPoint::BindDirection&, bool, unsigned long)@plt ()
+(gdb)
+Continuing.
+
+Breakpoint 2, DfwFilterBindPoint::bindFilter (bindPointValue=1042, filterType=0, bindPointType=AftFilterBindPoint::RtTable, filterIdx=301, direction=@0x7fffffffa84f: AftFilterBindPoint::Ingress, needBindNode=false, pfeMask=0)
+    at ../../src/DfwFilterBindPoint.cpp:275
+275         AmDfwFilterPtr filter = 0;
+(gdb) p lookup(bindPointValue,filterType,bindPointType,301,direction)
+$28 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x0, _M_refcount = {_M_pi = 0x0}}, <No data fields>}
+(gdb) p lookup(bindPointValue,filterType,bindPointType,302,direction)
+$29 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x0, _M_refcount = {_M_pi = 0x0}}, <No data fields>}
+(gdb) c
+Continuing.
+
+Breakpoint 2, 0x0000000000418260 in DfwFilterBindPoint::bindFilter(unsigned long, unsigned int, AftFilterBindPoint::BindType, unsigned int, AftFilterBindPoint::BindDirection&, bool, unsigned long)@plt ()
+(gdb)
+Continuing.
+
+Breakpoint 2, DfwFilterBindPoint::bindFilter (bindPointValue=1042, filterType=0, bindPointType=AftFilterBindPoint::RtTable, filterIdx=302, direction=@0x7fffffffa84f: AftFilterBindPoint::Ingress, needBindNode=false, pfeMask=0)
+    at ../../src/DfwFilterBindPoint.cpp:275
+275         AmDfwFilterPtr filter = 0;
+(gdb) p lookup(bindPointValue,filterType,bindPointType,301,direction)
+$30 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x684d00, _M_refcount = {_M_pi = 0x684cf0}}, <No data fields>}
+(gdb) p lookup(bindPointValue,filterType,bindPointType,302,direction)
+$31 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x684d00, _M_refcount = {_M_pi = 0x684cf0}}, <No data fields>}
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x0000000000417fd0 in DfwFilterBindPoint::unbindFilter(unsigned long, unsigned int, AftFilterBindPoint::BindType, unsigned int, AftFilterBindPoint::BindDirection&, bool, unsigned long)@plt ()
+(gdb)
+Continuing.
+
+Breakpoint 1, DfwFilterBindPoint::unbindFilter (bindPointValue=1042, filterType=0, bindPointType=AftFilterBindPoint::RtTable, filterIdx=301, direction=@0x7fffffffa84f: AftFilterBindPoint::Ingress, needBindNode=false,
+    pfeMask=0) at ../../src/DfwFilterBindPoint.cpp:352
+352         AmDfwFilterPtr filter = 0;
+(gdb) p lookup(bindPointValue,filterType,bindPointType,301,direction)
+$32 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x684d00, _M_refcount = {_M_pi = 0x684cf0}}, <No data fields>}
+(gdb) p lookup(bindPointValue,filterType,bindPointType,302,direction)
+$33 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x684d00, _M_refcount = {_M_pi = 0x684cf0}}, <No data fields>}
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x0000000000417fd0 in DfwFilterBindPoint::unbindFilter(unsigned long, unsigned int, AftFilterBindPoint::BindType, unsigned int, AftFilterBindPoint::BindDirection&, bool, unsigned long)@plt ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, DfwFilterBindPoint::unbindFilter (bindPointValue=1042, filterType=0, bindPointType=AftFilterBindPoint::RtTable, filterIdx=302, direction=@0x7fffffffa84b: AftFilterBindPoint::Ingress, needBindNode=false,
+    pfeMask=0) at ../../src/DfwFilterBindPoint.cpp:352
+352         AmDfwFilterPtr filter = 0;
+(gdb) p lookup(bindPointValue,filterType,bindPointType,301,direction)
+$34 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x0, _M_refcount = {_M_pi = 0x0}}, <No data fields>}
+(gdb) p lookup(bindPointValue,filterType,bindPointType,302,direction)
+$35 = {<std::__shared_ptr<DfwFilterBindPoint, (__gnu_cxx::_Lock_policy)2>> = {_M_ptr = 0x0, _M_refcount = {_M_pi = 0x0}}, <No data fields>}
