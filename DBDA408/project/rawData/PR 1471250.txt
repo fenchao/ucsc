@@ -1,0 +1,382 @@
+[edit]
+labroot@jtac-mx480-r2005-re0# show interfaces ge-100/0/0 | display set
+set interfaces ge-100/0/0 flexible-vlan-tagging
+set interfaces ge-100/0/0 mtu 9192
+set interfaces ge-100/0/0 encapsulation flexible-ethernet-services
+set interfaces ge-100/0/0 unit 327 description TO-ACX2200
+set interfaces ge-100/0/0 unit 327 encapsulation vlan-ccc
+set interfaces ge-100/0/0 unit 327 vlan-id 1042
+set interfaces ge-100/0/0 unit 327 family ccc filter input GENPOLICY_00210mb
+
+[edit]
+labroot@jtac-mx480-r2005-re0# show | display set | grep GENPOLICY_00210mb
+set interfaces ge-100/0/0 unit 327 family ccc filter input GENPOLICY_00210mb
+set firewall family ccc filter GENPOLICY_00210mb term 1 then policer GENPOLICY_210mb
+
+[edit]
+labroot@jtac-mx480-r2005-re0# show | display set | grep GENPOLICY_210mb
+set firewall family ccc filter GENPOLICY_00210mb term 1 then policer GENPOLICY_210mb
+set firewall policer GENPOLICY_210mb if-exceeding bandwidth-limit 210m
+set firewall policer GENPOLICY_210mb if-exceeding burst-size-limit 625k
+set firewall policer GENPOLICY_210mb then discard
+
+[edit]
+labroot@jtac-mx480-r2005-re0# show chassis satellite-management | display set
+set chassis satellite-management fpc 100 serial-number PD3715160704
+set chassis satellite-management fpc 100 system-id 5c:45:27:98:24:60
+set chassis satellite-management fpc 100 cascade-ports xe-1/2/1
+set chassis satellite-management fpc 100 cascade-ports xe-2/0/0
+set chassis satellite-management fpc 100 cascade-ports xe-5/0/0
+set chassis satellite-management fpc 100 cascade-ports xe-5/0/1
+set chassis satellite-management upgrade-groups group1 satellite 100
+set chassis satellite-management single-home satellite all
+
+
+labroot@jtac-mx480-r2005-re0> show interfaces terse | grep ge-100
+ge-100/0/0              up    up
+ge-100/0/0.327          up    down ccc
+ge-100/0/0.32767        up    up   multiservice
+...
+ge-100/0/47             up    down
+
+
+FPC1:
+NPC1(jtac-mx480-r2005-re0 vty)# show filter
+Program Filters:
+---------------
+   Index     Dir     Cnt    Text     Bss  Name
+--------  ------  ------  ------  ------  --------
+
+Term Filters:
+------------
+   Index    Semantic  Properties   Name
+--------  ---------- --------  ------
+       1  Classic    -         __default_bpdu_filter__
+       2  Classic    -         GENPOLICY_00210mb
+       
+NPC1(jtac-mx480-r2005-re0 vty)# show filter index 2 program
+Filter index = 2
+Optimization flag: 0xf7
+Filter notify host id = 0
+Filter properties: None
+Filter state = CONSISTENT
+term 1
+term priority 0
+
+    then
+        accept
+        policer template GENPOLICY_210mb
+        policer GENPOLICY_210mb-1
+                app_type 0
+                bandwidth-limit 210000000 bits/sec
+                burst-size-limit 625000 bytes
+                discard
+
+FPC1
+==========================
+NPC1(jtac-mx480-r2005-re0 vty)# show filter index 2 jnh
+
+Current context : 0.
+
+Pfe Inst:0 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00067e20
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 0
+
+term 1 (pfe-inst 0)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680067e2b833f15c
+         Decoding :- FW_STOP: pdesc:0xcfc57 desc:0xcfc57
+
+     Action Addr  :- 0xcfc57
+     Action NH    :- 0x3033f17d00000301
+
+        Feature List: NH
+           [pfe-0]: 0x3033f17d00000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x0
+        Idx#0          -:
+           [pfe-0]: 0x3033f17d00000301
+
+
+Current context : 0.
+
+Pfe Inst:1 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00067e21
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 1
+
+term 1 (pfe-inst 1)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680067e2c833f164
+         Decoding :- FW_STOP: pdesc:0xcfc59 desc:0xcfc59
+
+     Action Addr  :- 0xcfc59
+     Action NH    :- 0x3033f18500000301
+
+        Feature List: NH
+           [pfe-1]: 0x3033f18500000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x1
+        Idx#0          -:
+           [pfe-1]: 0x3033f18500000301
+
+NPC1(jtac-mx480-r2005-re0 vty)# show jnh 0 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x8340000025000000
+
+NPC1(jtac-mx480-r2005-re0 vty)# show jnh 0 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x8340000025000000
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000000
+        r = 0x00000001
+        u = 0x00000001
+        cl = 0x00000004
+        last_adj_time = 0x00000000
+
+Bandwidth:     26250000/Bps (210000000/bps)
+Burst size:    1312500 bytes
+Charging rate: 8400 bytes every 320 micro seconds
+
+
+NPC1(jtac-mx480-r2005-re0 vty)# show jnh 1 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x8340000025000000
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000000
+        r = 0x00000001
+        u = 0x00000001
+        cl = 0x00000004
+        last_adj_time = 0x00000000
+
+Bandwidth:     26250000/Bps (210000000/bps)
+Burst size:    1312500 bytes
+Charging rate: 8400 bytes every 320 micro seconds
+
+
+FPC2
+====================
+NPC2(jtac-mx480-r2005-re0 vty)# show filter index 2 jnh
+
+Current context : 0.
+
+Pfe Inst:0 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00085fc2
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 0
+
+term 1 (pfe-inst 0)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680085fd1842fe8c
+         Decoding :- FW_STOP: pdesc:0x10bfa3 desc:0x10bfa3
+
+     Action Addr  :- 0x10bfa3
+     Action NH    :- 0x3042fead00000301
+
+        Feature List: NH
+           [pfe-0]: 0x3042fead00000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x0
+        Idx#0          -:
+           [pfe-0]: 0x3042fead00000301
+
+
+Current context : 0.
+
+Pfe Inst:1 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00085fc2
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 1
+
+term 1 (pfe-inst 1)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680085fd1842fe8c
+         Decoding :- FW_STOP: pdesc:0x10bfa3 desc:0x10bfa3
+
+     Action Addr  :- 0x10bfa3
+     Action NH    :- 0x3042fead00000301
+
+        Feature List: NH
+           [pfe-1]: 0x3042fead00000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x1
+        Idx#0          -:
+           [pfe-1]: 0x3042fead00000301
+
+NPC2(jtac-mx480-r2005-re0 vty)# show jnh 0 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x83400040210b3442
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000080
+        r = 0x00000001
+        u = 0x00000000
+        cl = 0x00000004
+        last_adj_time = 0x000b3442
+
+Bandwidth:     13125000/Bps (105000000/bps)
+Burst size:    656250 bytes
+Charging rate: 4200 bytes every 320 micro seconds
+
+NPC2(jtac-mx480-r2005-re0 vty)# show jnh 1 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x8340000021000000
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000000
+        r = 0x00000001
+        u = 0x00000000
+        cl = 0x00000004
+        last_adj_time = 0x00000000
+
+Bandwidth:     13125000/Bps (105000000/bps)
+Burst size:    656250 bytes
+Charging rate: 4200 bytes every 320 micro seconds
+
+FPC5
+=============
+NPC5(jtac-mx480-r2005-re0 vty)# show filter index 2 jnh
+
+Current context : 0.
+
+Pfe Inst:0 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00085fc2
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 0
+
+term 1 (pfe-inst 0)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680085fd9842fecc
+         Decoding :- FW_STOP: pdesc:0x10bfb3 desc:0x10bfb3
+
+     Action Addr  :- 0x10bfb3
+     Action NH    :- 0x3042feed00000301
+
+        Feature List: NH
+           [pfe-0]: 0x3042feed00000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x0
+        Idx#0          -:
+           [pfe-0]: 0x3042feed00000301
+
+
+Current context : 0.
+
+Pfe Inst:1 Hw Instance 1, type:1 op:2
+JNH_FW_START:
+        opcode = 0x0000000c
+        anonymous_union_0 = 0x00008001
+        filter_id = 0x00000000
+        cntr_base = 0x00000001
+        flt_base = 0x00000000
+        base_ptr = 0x00085fc2
+
+  Counter Base:- 0x0
+  Policer Base:- 0x510d22
+  Number of policers : 2 (including PSAs)
+
+Pfe Inst: 1
+
+term 1 (pfe-inst 1)
+     Start Addr   :- 0x8001
+     Stop Addr    :- 0x8001
+     Stop NH      :- 0x680085fd9842fecc
+         Decoding :- FW_STOP: pdesc:0x10bfb3 desc:0x10bfb3
+
+     Action Addr  :- 0x10bfb3
+     Action NH    :- 0x3042feed00000301
+
+        Feature List: NH
+           [pfe-1]: 0x3042feed00000301;
+          f_mask:0x8000000000000000; c_mask:0x8000000000000000; f_num:2; c_num:1,  inst:0x1
+        Idx#0          -:
+           [pfe-1]: 0x3042feed00000301
+
+NPC5(jtac-mx480-r2005-re0 vty)# show jnh 0 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x83400020213b1f11
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000040
+        r = 0x00000001
+        u = 0x00000000
+        cl = 0x00000004
+        last_adj_time = 0x003b1f11
+
+Bandwidth:     13125000/Bps (105000000/bps)
+Burst size:    656250 bytes
+Charging rate: 4200 bytes every 320 micro seconds
+
+NPC5(jtac-mx480-r2005-re0 vty)# show jnh 1 caddr 0x510d22 policer
+Addr:0xb10d22, Data = 0x8340000021000000
+
+JNH_POLICER_DATA_IJ:
+        time_credit = 0x00001068
+        curr_credit = 0x00000000
+        r = 0x00000001
+        u = 0x00000000
+        cl = 0x00000004
+        last_adj_time = 0x00000000
+
+Bandwidth:     13125000/Bps (105000000/bps)
+Burst size:    656250 bytes
+Charging rate: 4200 bytes every 320 micro seconds
+
+
+====
+
+jnh_policer_get_params
+jnh_ucode_policer_data_ij_make
+
