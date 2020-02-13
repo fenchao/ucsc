@@ -1,0 +1,59 @@
+74.98	
+98.99	
+212.98
+212.98-98.99-74.98
+
+void
+dfw_gencfg_handles_init (void)
+{
+    dfw_gencfg_minor_type_t type;
+    dfw_gencfg_handle_t **handlep;
+
+    memset(dfw_handle.dfw_gencfg_handles, 0,
+           sizeof(dfw_handle.dfw_gencfg_handles));
+
+    for (type = 0; type < DFW_GENCFG_MAX; type++) {
+        handlep = dfw_handle.dfw_gencfg_handles + type;
+        switch(type) {
+            case DFW_FILTER_TERM_CURRENT:
+                *handlep = &dfw_gencfg_filter_term_handle;
+                break;
+            case DFW_FILTER_HEAD_CURRENT:
+                *handlep = &dfw_gencfg_filter_head_handle;
+                break;
+            case DFW_FILTER_STATE_CURRENT:
+                *handlep = &dfw_gencfg_filter_state_handle;
+                break;
+            case DFW_TIMER_CURRENT:
+                *handlep = &dfw_gencfg_timer_handle;
+                break;
+            case DFW_POLICER_CURRENT:
+                *handlep = &dfw_gencfg_policer_handle;
+                break;
+            case DFW_GLOBAL_MSG_VER:
+                *handlep = &dfw_gencfg_global_msg_handle;
+                break;
+            case DFW_TRICOLOR_CURRENT:
+                *handlep = &dfw_gencfg_tricolor_handle;
+                break;
+            case DFW_HIERPOLICER_CURRENT:
+                *handlep = &dfw_gencfg_hierpolicer_handle;
+                break;
+            case DFW_PREFIX_ACTION_CURRENT:
+                *handlep = &dfw_gencfg_psa_handle;
+                break;
+            case DFW_NOTIFY_HOST_CURRENT:
+                *handlep = &dfw_gencfg_notify_host_handle;
+                break;
+            default:
+                break;
+        }
+    }
+
+    dfw_init_service_msg_handler();
+}
+
+Zhou
+Zhen
+zzhou1@andrew.cmu.edu
+412.818.5717

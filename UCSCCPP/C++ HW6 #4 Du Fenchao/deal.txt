@@ -1,0 +1,494 @@
+Interactive Mode
+WELCOME TO DEAL OR NO DEAL!
+ROUND 0
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $75.00, $100.00, $200.00, $300.00, $400.00, $500.00, $750.00, $1000.00, $5000.00, $10000.00, $25000.00, $50000.00, $75000.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, $1000000.00, 
+Remaining briefcases:
+BOX1, BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please select a briefcases: 
+1
+YOU SELECTED BOX1
+
+ROUND 1
+Remaining briefcases:
+BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 6 briefcases: 
+2 3 4 5 6 7
+OPEN BOX2:$0.01!
+OPEN BOX3:$100000.00!
+OPEN BOX4:$75.00!
+OPEN BOX5:$1000000.00!
+OPEN BOX6:$5000.00!
+OPEN BOX7:$200000.00!
+Remaining cashes:
+$1.00, $5.00, $10.00, $25.00, $50.00, $100.00, $200.00, $300.00, $400.00, $500.00, $750.00, $1000.00, $10000.00, $25000.00, $50000.00, $75000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $1056.00, do you accept deal?(Y/N): 
+n
+
+ROUND 2
+Remaining briefcases:
+BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 5 briefcases: 
+8 9 10 11 12
+OPEN BOX8:$400.00!
+OPEN BOX9:$75000.00!
+OPEN BOX10:$50000.00!
+OPEN BOX11:$25.00!
+OPEN BOX12:$100.00!
+Remaining cashes:
+$1.00, $5.00, $10.00, $50.00, $200.00, $300.00, $500.00, $750.00, $1000.00, $10000.00, $25000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $5300.00, do you accept deal?(Y/N): 
+n
+
+ROUND 3
+Remaining briefcases:
+BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 4 briefcases: 
+13 14 15 16
+OPEN BOX13:$5.00!
+OPEN BOX14:$1.00!
+OPEN BOX15:$400000.00!
+OPEN BOX16:$1000.00!
+Remaining cashes:
+$10.00, $50.00, $200.00, $300.00, $500.00, $750.00, $10000.00, $25000.00, $300000.00, $500000.00, $750000.00, 
+Banker offers $12982.00, do you accept deal?(Y/N): 
+n
+
+ROUND 4
+Remaining briefcases:
+BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 3 briefcases: 
+17 18 19
+OPEN BOX17:$300.00!
+OPEN BOX18:$750000.00!
+OPEN BOX19:$10.00!
+Remaining cashes:
+$50.00, $200.00, $500.00, $750.00, $10000.00, $25000.00, $300000.00, $500000.00, 
+Banker offers $16730.00, do you accept deal?(Y/N): 
+n
+
+ROUND 5
+Remaining briefcases:
+BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 2 briefcases: 
+20 21
+OPEN BOX20:$500000.00!
+OPEN BOX21:$300000.00!
+Remaining cashes:
+$50.00, $200.00, $500.00, $750.00, $10000.00, $25000.00, 
+Banker offers $1520.00, do you accept deal?(Y/N): 
+n
+
+ROUND 6
+Remaining briefcases:
+BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 1 briefcases: 
+22
+OPEN BOX22:$10000.00!
+Remaining cashes:
+$50.00, $200.00, $500.00, $750.00, $25000.00, 
+Banker offers $1908.00, do you accept deal?(Y/N): 
+n
+
+ROUND 7
+Remaining briefcases:
+BOX23, BOX24, BOX25, BOX26, 
+Please open 1 briefcases: 
+23
+OPEN BOX23:$750.00!
+Remaining cashes:
+$50.00, $200.00, $500.00, $25000.00, 
+Banker offers $3154.00, do you accept deal?(Y/N): 
+n
+
+ROUND 8
+Remaining briefcases:
+BOX24, BOX25, BOX26, 
+Please open 1 briefcases: 
+24
+OPEN BOX24:$200.00!
+Remaining cashes:
+$50.00, $500.00, $25000.00, 
+Banker offers $5450.00, do you accept deal?(Y/N): 
+n
+
+ROUND 9
+Remaining briefcases:
+BOX25, BOX26, 
+Please open 1 briefcases: 
+25
+OPEN BOX25:$500.00!
+Remaining cashes:
+$50.00, $25000.00, 
+Banker offers $10145.00, do you accept deal?(Y/N): 
+n
+
+FINAL RESULT
+Remaining cashes:
+$50.00, $25000.00, 
+YOU SELECTED BOX 1
+Remaining briefcases:
+BOX26, 
+Please open the last briefcase that does NOT belong to you!...
+26
+CONGRATULATIONS! YOU DID NOT ACCEPT DEAL!
+YOU GOT $50.00
+Program ended with exit code: 0
+
+
+
+Non-interactive Mode
+WELCOME TO DEAL OR NO DEAL!
+ROUND 0
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $75.00, $100.00, $200.00, $300.00, $400.00, $500.00, $750.00, $1000.00, $5000.00, $10000.00, $25000.00, $50000.00, $75000.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, $1000000.00, 
+Remaining briefcases:
+BOX1, BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please select a briefcases: 
+YOU SELECTED BOX3
+
+ROUND 1
+Remaining briefcases:
+BOX1, BOX2, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 6 briefcases: 
+OPEN BOX13:$750.00!
+OPEN BOX8:$400000.00!
+OPEN BOX19:$5.00!
+OPEN BOX24:$100.00!
+OPEN BOX26:$25000.00!
+OPEN BOX11:$75.00!
+Remaining cashes:
+$0.01, $1.00, $10.00, $25.00, $50.00, $200.00, $300.00, $400.00, $500.00, $1000.00, $5000.00, $10000.00, $50000.00, $75000.00, $100000.00, $200000.00, $300000.00, $500000.00, $750000.00, $1000000.00, 
+Banker offers $1496.00, do you accept deal?(Y/N): 
+
+ROUND 2
+Remaining briefcases:
+BOX1, BOX2, BOX4, BOX5, BOX6, BOX7, BOX9, BOX10, BOX12, BOX14, BOX15, BOX16, BOX17, BOX18, BOX20, BOX21, BOX22, BOX23, BOX25, 
+Please open 5 briefcases: 
+OPEN BOX16:$0.01!
+OPEN BOX20:$500000.00!
+OPEN BOX10:$1000.00!
+OPEN BOX15:$200.00!
+OPEN BOX9:$50000.00!
+Remaining cashes:
+$1.00, $10.00, $25.00, $50.00, $300.00, $400.00, $500.00, $5000.00, $10000.00, $75000.00, $100000.00, $200000.00, $300000.00, $750000.00, $1000000.00, 
+Banker offers $6510.00, do you accept deal?(Y/N): 
+
+ROUND 3
+Remaining briefcases:
+BOX1, BOX2, BOX4, BOX5, BOX6, BOX7, BOX12, BOX14, BOX17, BOX18, BOX21, BOX22, BOX23, BOX25, 
+Please open 4 briefcases: 
+OPEN BOX23:$1000000.00!
+OPEN BOX7:$300.00!
+OPEN BOX21:$5000.00!
+OPEN BOX12:$100000.00!
+Remaining cashes:
+$1.00, $10.00, $25.00, $50.00, $400.00, $500.00, $10000.00, $75000.00, $200000.00, $300000.00, $750000.00, 
+Banker offers $10930.00, do you accept deal?(Y/N): 
+
+ROUND 4
+Remaining briefcases:
+BOX1, BOX2, BOX4, BOX5, BOX6, BOX14, BOX17, BOX18, BOX22, BOX25, 
+Please open 3 briefcases: 
+OPEN BOX1:$10000.00!
+OPEN BOX14:$10.00!
+OPEN BOX17:$75000.00!
+Remaining cashes:
+$1.00, $25.00, $50.00, $400.00, $500.00, $200000.00, $300000.00, $750000.00, 
+Banker offers $25019.00, do you accept deal?(Y/N): 
+
+ROUND 5
+Remaining briefcases:
+BOX2, BOX4, BOX5, BOX6, BOX18, BOX22, BOX25, 
+Please open 2 briefcases: 
+OPEN BOX5:$1.00!
+OPEN BOX22:$50.00!
+Remaining cashes:
+$25.00, $400.00, $500.00, $200000.00, $300000.00, $750000.00, 
+Banker offers $52121.00, do you accept deal?(Y/N): 
+
+ROUND 6
+Remaining briefcases:
+BOX2, BOX4, BOX6, BOX18, BOX25, 
+Please open 1 briefcases: 
+OPEN BOX4:$25.00!
+Remaining cashes:
+$400.00, $500.00, $200000.00, $300000.00, $750000.00, 
+Banker offers $90064.00, do you accept deal?(Y/N): 
+
+ROUND 7
+Remaining briefcases:
+BOX2, BOX6, BOX18, BOX25, 
+Please open 1 briefcases: 
+OPEN BOX2:$400.00!
+Remaining cashes:
+$500.00, $200000.00, $300000.00, $750000.00, 
+Banker offers $153186.00, do you accept deal?(Y/N): 
+
+ROUND 8
+Remaining briefcases:
+BOX6, BOX18, BOX25, 
+Please open 1 briefcases: 
+OPEN BOX25:$500.00!
+Remaining cashes:
+$200000.00, $300000.00, $750000.00, 
+Banker offers $266666.00, do you accept deal?(Y/N): 
+
+ROUND 9
+Remaining briefcases:
+BOX6, BOX18, 
+Please open 1 briefcases: 
+OPEN BOX18:$200000.00!
+Remaining cashes:
+$300000.00, $750000.00, 
+Banker offers $425250.00, do you accept deal?(Y/N): 
+
+FINAL RESULT
+Remaining cashes:
+$300000.00, $750000.00, 
+YOU SELECTED BOX 3
+Remaining briefcases:
+BOX6, 
+Please open the last briefcase that does NOT belong to you!...
+CONGRATULATIONS! YOU DID NOT ACCEPT DEAL!
+YOU GOT $750000.00
+Program ended with exit code: 0
+
+
+
+
+Non-interactive Mode
+WELCOME TO DEAL OR NO DEAL!
+ROUND 0
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $75.00, $100.00, $200.00, $300.00, $400.00, $500.00, $750.00, $1000.00, $5000.00, $10000.00, $25000.00, $50000.00, $75000.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, $1000000.00, 
+Remaining briefcases:
+BOX1, BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please select a briefcases: 
+YOU SELECTED BOX1
+
+ROUND 1
+Remaining briefcases:
+BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 6 briefcases: 
+OPEN BOX11:$750.00!
+OPEN BOX3:$25.00!
+OPEN BOX19:$750000.00!
+OPEN BOX20:$50.00!
+OPEN BOX22:$100000.00!
+OPEN BOX26:$25000.00!
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $75.00, $100.00, $200.00, $300.00, $400.00, $500.00, $1000.00, $5000.00, $10000.00, $50000.00, $75000.00, $200000.00, $300000.00, $400000.00, $500000.00, $1000000.00, 
+Banker offers $1271.00, do you accept deal?(Y/N): 
+
+ROUND 2
+Remaining briefcases:
+BOX2, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX21, BOX23, BOX24, BOX25, 
+Please open 5 briefcases: 
+OPEN BOX17:$10.00!
+OPEN BOX12:$500.00!
+OPEN BOX25:$1.00!
+OPEN BOX4:$400.00!
+OPEN BOX21:$300.00!
+Remaining cashes:
+$0.01, $5.00, $75.00, $100.00, $200.00, $1000.00, $5000.00, $10000.00, $50000.00, $75000.00, $200000.00, $300000.00, $400000.00, $500000.00, $1000000.00, 
+Banker offers $6777.00, do you accept deal?(Y/N): 
+
+ROUND 3
+Remaining briefcases:
+BOX2, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX13, BOX14, BOX15, BOX16, BOX18, BOX23, BOX24, 
+Please open 4 briefcases: 
+OPEN BOX15:$200000.00!
+OPEN BOX8:$1000.00!
+OPEN BOX2:$50000.00!
+OPEN BOX24:$10000.00!
+Remaining cashes:
+$0.01, $5.00, $75.00, $100.00, $200.00, $5000.00, $75000.00, $300000.00, $400000.00, $500000.00, $1000000.00, 
+Banker offers $18657.00, do you accept deal?(Y/N): 
+
+ROUND 4
+Remaining briefcases:
+BOX5, BOX6, BOX7, BOX9, BOX10, BOX13, BOX14, BOX16, BOX18, BOX23, 
+Please open 3 briefcases: 
+OPEN BOX10:$100.00!
+OPEN BOX7:$0.01!
+OPEN BOX23:$75.00!
+Remaining cashes:
+$5.00, $200.00, $5000.00, $75000.00, $300000.00, $400000.00, $500000.00, $1000000.00, 
+Banker offers $45604.00, do you accept deal?(Y/N): 
+
+ROUND 5
+Remaining briefcases:
+BOX5, BOX6, BOX9, BOX13, BOX14, BOX16, BOX18, 
+Please open 2 briefcases: 
+OPEN BOX16:$5000.00!
+OPEN BOX5:$500000.00!
+Remaining cashes:
+$5.00, $200.00, $75000.00, $300000.00, $400000.00, $1000000.00, 
+Banker offers $73966.00, do you accept deal?(Y/N): 
+
+ROUND 6
+Remaining briefcases:
+BOX6, BOX9, BOX13, BOX14, BOX18, 
+Please open 1 briefcases: 
+OPEN BOX14:$5.00!
+Remaining cashes:
+$200.00, $75000.00, $300000.00, $400000.00, $1000000.00, 
+Banker offers $127814.00, do you accept deal?(Y/N): 
+
+ROUND 7
+Remaining briefcases:
+BOX6, BOX9, BOX13, BOX18, 
+Please open 1 briefcases: 
+OPEN BOX13:$300000.00!
+Remaining cashes:
+$200.00, $75000.00, $400000.00, $1000000.00, 
+Banker offers $180712.00, do you accept deal?(Y/N): 
+
+ROUND 8
+Remaining briefcases:
+BOX6, BOX9, BOX18, 
+Please open 1 briefcases: 
+OPEN BOX9:$200.00!
+Remaining cashes:
+$75000.00, $400000.00, $1000000.00, 
+Banker offers $314666.00, do you accept deal?(Y/N): 
+
+ROUND 9
+Remaining briefcases:
+BOX6, BOX18, 
+Please open 1 briefcases: 
+OPEN BOX18:$400000.00!
+Remaining cashes:
+$75000.00, $1000000.00, 
+Banker offers $435375.00, do you accept deal?(Y/N): 
+
+FINAL RESULT
+Remaining cashes:
+$75000.00, $1000000.00, 
+YOU SELECTED BOX 1
+Remaining briefcases:
+BOX6, 
+Please open the last briefcase that does NOT belong to you!...
+CONGRATULATIONS! YOU DID NOT ACCEPT DEAL!
+YOU GOT $1000000.00
+Program ended with exit code: 0
+
+
+
+Non-interactive Mode
+WELCOME TO DEAL OR NO DEAL!
+ROUND 0
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $75.00, $100.00, $200.00, $300.00, $400.00, $500.00, $750.00, $1000.00, $5000.00, $10000.00, $25000.00, $50000.00, $75000.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, $1000000.00, 
+Remaining briefcases:
+BOX1, BOX2, BOX3, BOX4, BOX5, BOX6, BOX7, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please select a briefcases: 
+YOU SELECTED BOX7
+
+ROUND 1
+Remaining briefcases:
+BOX1, BOX2, BOX3, BOX4, BOX5, BOX6, BOX8, BOX9, BOX10, BOX11, BOX12, BOX13, BOX14, BOX15, BOX16, BOX17, BOX18, BOX19, BOX20, BOX21, BOX22, BOX23, BOX24, BOX25, BOX26, 
+Please open 6 briefcases: 
+OPEN BOX6:$1000000.00!
+OPEN BOX8:$400.00!
+OPEN BOX13:$500.00!
+OPEN BOX19:$75000.00!
+OPEN BOX22:$1000.00!
+OPEN BOX3:$5000.00!
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $75.00, $100.00, $200.00, $300.00, $750.00, $10000.00, $25000.00, $50000.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $1168.00, do you accept deal?(Y/N): 
+
+ROUND 2
+Remaining briefcases:
+BOX1, BOX2, BOX4, BOX5, BOX9, BOX10, BOX11, BOX12, BOX14, BOX15, BOX16, BOX17, BOX18, BOX20, BOX21, BOX23, BOX24, BOX25, BOX26, 
+Please open 5 briefcases: 
+OPEN BOX14:$25000.00!
+OPEN BOX23:$10000.00!
+OPEN BOX17:$100.00!
+OPEN BOX1:$75.00!
+OPEN BOX21:$50000.00!
+Remaining cashes:
+$0.01, $1.00, $5.00, $10.00, $25.00, $50.00, $200.00, $300.00, $750.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $6003.00, do you accept deal?(Y/N): 
+
+ROUND 3
+Remaining briefcases:
+BOX2, BOX4, BOX5, BOX9, BOX10, BOX11, BOX12, BOX15, BOX16, BOX18, BOX20, BOX24, BOX25, BOX26, 
+Please open 4 briefcases: 
+OPEN BOX15:$300.00!
+OPEN BOX26:$1.00!
+OPEN BOX24:$50.00!
+OPEN BOX11:$10.00!
+Remaining cashes:
+$0.01, $5.00, $25.00, $200.00, $750.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $18417.00, do you accept deal?(Y/N): 
+
+ROUND 4
+Remaining briefcases:
+BOX2, BOX4, BOX5, BOX9, BOX10, BOX12, BOX16, BOX18, BOX20, BOX25, 
+Please open 3 briefcases: 
+OPEN BOX2:$5.00!
+OPEN BOX18:$750.00!
+OPEN BOX10:$25.00!
+Remaining cashes:
+$0.01, $200.00, $100000.00, $200000.00, $300000.00, $400000.00, $500000.00, $750000.00, 
+Banker offers $45004.00, do you accept deal?(Y/N): 
+
+ROUND 5
+Remaining briefcases:
+BOX4, BOX5, BOX9, BOX12, BOX16, BOX20, BOX25, 
+Please open 2 briefcases: 
+OPEN BOX9:$100000.00!
+OPEN BOX12:$750000.00!
+Remaining cashes:
+$0.01, $200.00, $200000.00, $300000.00, $400000.00, $500000.00, 
+Banker offers $58341.00, do you accept deal?(Y/N): 
+
+ROUND 6
+Remaining briefcases:
+BOX4, BOX5, BOX16, BOX20, BOX25, 
+Please open 1 briefcases: 
+OPEN BOX25:$500000.00!
+Remaining cashes:
+$0.01, $200.00, $200000.00, $300000.00, $400000.00, 
+Banker offers $64814.00, do you accept deal?(Y/N): 
+
+ROUND 7
+Remaining briefcases:
+BOX4, BOX5, BOX16, BOX20, 
+Please open 1 briefcases: 
+OPEN BOX16:$300000.00!
+Remaining cashes:
+$0.01, $200.00, $200000.00, $400000.00, 
+Banker offers $73524.00, do you accept deal?(Y/N): 
+
+ROUND 8
+Remaining briefcases:
+BOX4, BOX5, BOX20, 
+Please open 1 briefcases: 
+OPEN BOX5:$400000.00!
+Remaining cashes:
+$0.01, $200.00, $200000.00, 
+Banker offers $42709.00, do you accept deal?(Y/N): 
+
+ROUND 9
+Remaining briefcases:
+BOX4, BOX20, 
+Please open 1 briefcases: 
+OPEN BOX4:$200000.00!
+Remaining cashes:
+$0.01, $200.00, 
+Banker offers $81.00, do you accept deal?(Y/N): 
+
+FINAL RESULT
+Remaining cashes:
+$0.01, $200.00, 
+YOU SELECTED BOX 7
+Remaining briefcases:
+BOX20, 
+Please open the last briefcase that does NOT belong to you!...
+CONGRATULATIONS! YOU DID NOT ACCEPT DEAL!
+YOU GOT $0.01
+Program ended with exit code: 0

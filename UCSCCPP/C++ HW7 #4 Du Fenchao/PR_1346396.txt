@@ -1,0 +1,103 @@
+ping 11.1.1.1 size 1030 count 17 rapid
+
+r0 
+set firewall family inet filter Loopback-reject term reject_icmp from packet-length 1000-1100
+set firewall family inet filter Loopback-reject term reject_icmp then count ipv4_icmp_rejected
+set firewall family inet filter Loopback-reject term reject_icmp then reject
+set firewall family inet filter Loopback-reject term def then count def_v4
+set firewall family inet filter Loopback-reject term def then accept
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 from packet-length 1100-1300
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then count ipv6_icmp_rejected
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then accept
+set firewall family inet6 filter Loopback-reject_v6 term def then count dev_v6
+set firewall family inet6 filter Loopback-reject_v6 term def then accept
+delete interfaces xe-1/0/0
+set interfaces xe-0/0/1 unit 0 family inet address 11.1.1.1/24
+set interfaces xe-0/0/1 unit 0 family inet6 address 9020::1/64
+set interfaces lo0 unit 0 family inet filter input Loopback-reject
+set interfaces lo0 unit 0 family inet6 filter input Loopback-reject_v6
+
+r1 
+set interfaces xe-0/0/1 unit 0 family inet filter input tt
+set interfaces xe-0/0/1 unit 0 family inet address 11.1.1.2/24
+set interfaces xe-0/0/1 unit 0 family inet6 filter input aa
+set interfaces xe-0/0/1 unit 0 family inet6 address 9020::2/64
+set firewall family inet filter tt term 1 from protocol icmp
+set firewall family inet filter tt term 1 from icmp-type unreachable
+set firewall family inet filter tt term 1 from icmp-code communication-prohibited-by-filtering
+set firewall family inet filter tt term 1 then count icmp_msg_v4
+set firewall family inet filter tt term def then count def_v4
+set firewall family inet filter tt term def then accept
+set firewall family inet6 filter aa term 1 from next-header icmp6
+set firewall family inet6 filter aa term 1 from icmp-type destination-unreachable
+set firewall family inet6 filter aa term 1 from icmp-code administratively-prohibited
+set firewall family inet6 filter aa term 1 then count icmp6_msg_v6
+set firewall family inet6 filter aa term def then count def_v6
+set firewall family inet6 filter aa term def then accept
+
+
+
+
+
+r0
+set firewall family inet filter Loopback-reject term reject_icmp from packet-length 1000-1100
+set firewall family inet filter Loopback-reject term reject_icmp then count ipv4_icmp_rejected
+set firewall family inet filter Loopback-reject term reject_icmp then reject
+set firewall family inet filter Loopback-reject term def then count def_v4
+set firewall family inet filter Loopback-reject term def then accept
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 from packet-length 1100-1300
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then count ipv6_icmp_rejected
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then accept
+set firewall family inet6 filter Loopback-reject_v6 term def then count dev_v6
+set firewall family inet6 filter Loopback-reject_v6 term def then accept
+delete interfaces et-8/0/0
+set interfaces et-8/0/0 unit 0 family inet address 11.1.1.1/24
+set interfaces et-8/0/0 unit 0 family inet6 address 9020::1/64
+set interfaces lo0 unit 0 family inet filter input Loopback-reject
+set interfaces lo0 unit 0 family inet6 filter input Loopback-reject_v6
+
+r1
+set interfaces et-8/0/0 unit 0 family inet filter input tt
+set interfaces et-8/0/0 unit 0 family inet address 11.1.1.2/24
+set interfaces et-8/0/0 unit 0 family inet6 filter input aa
+set interfaces et-8/0/0 unit 0 family inet6 address 9020::2/64
+set firewall family inet filter tt term 1 from protocol icmp
+set firewall family inet filter tt term 1 from icmp-type unreachable
+set firewall family inet filter tt term 1 from icmp-code communication-prohibited-by-filtering
+set firewall family inet filter tt term 1 then count icmp_msg_v4
+set firewall family inet filter tt term def then count def_v4
+set firewall family inet filter tt term def then accept
+set firewall family inet6 filter aa term 1 from next-header icmp6
+set firewall family inet6 filter aa term 1 from icmp-type destination-unreachable
+set firewall family inet6 filter aa term 1 from icmp-code administratively-prohibited
+set firewall family inet6 filter aa term 1 then count icmp6_msg_v6
+set firewall family inet6 filter aa term def then count def_v6
+set firewall family inet6 filter aa term def then accept
+
+
+r0 bmw
+fail 18.1R1.5; 18.2-20180210_dev_common.1; 18.2-20180224_dev_common.0
+work 18.2-20180227_dev_common.0
+
+unknown
+18.2-20180227_dev_common.0
+
+mx,vqfx10k good for 18.1R1.5
+
+need a ptx
+
+
+PR_1311588
+As captured in the AT-57, long back I had asked the L2 team to look at changes corresponding to DFW-PROC-ABSTRACT-AND-FWDD as appropriate as FLOWD requires the FWDD filter format. Please reassign
+
+This is a wrong change.
+FLOWD is not the only client for libdfw
+
+
+#define DFW_GENCFG_IS_SUPPORTED_MINOR_TYPE(minor_type) \
+14:01:08          (((minor_type) >= DFW_POLICER_VER && \
+14:01:08 -         (minor_type) < DFW_FILTER_STATE_VER_NBO) || \
+14:01:08 -         (minor_type) >= DFW_FILTER_HEAD_TLV32)
+14:01:08 +          (minor_type) < DFW_FILTER_STATE_VER_NBO) || \
+14:01:08 +         ((minor_type) >= DFW_FILTER_HEAD_TLV32 && \
+14:01:08 +          (minor_type) < DFW_FIU_VER))

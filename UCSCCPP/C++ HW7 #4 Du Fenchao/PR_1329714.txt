@@ -1,0 +1,220 @@
+three color and policer
+
+
+
+
+(gdb) p *session
+$14 = {client_next = {stqe_next = 0x0}, num_client_ids = 2, client_id_list = 0x9021b40, client_socket = 53, filter = 0x9085418, policer = 0x96db080, tricolor_policer = 0x96db088, hierarch_policer = 0x96db0a0,
+  prefix_list = 0x96db0a8, fcu = 0x96db988, timer = 0x96db078, attach = 0x96db998, attach_points = 0x96db9a0, purge_list = 0x0, fsm_state = DFWDLIB_FSM_STATE_TERM_SPECIAL, config_state = DFWDLIB_CONFIG_STATE_NOOP,
+  dcs_pending_policer_head = {stqh_first = 0x0, stqh_last = 0xa054040}, dcs_pending_tricolor_policer_head = {stqh_first = 0x0, stqh_last = 0xa054048}, dcs_pending_hierarch_policer_head = {stqh_first = 0x0,
+    stqh_last = 0xa054050}, dcs_pending_timer_head = {stqh_first = 0x0, stqh_last = 0xa054058}, dcs_pending_attach_head = {stqh_first = 0x0, stqh_last = 0xa054060}, trans = 0x0,
+  msg_buf = "\001\000\001\006\000\000\000\022\000\" '\000' <repeats 13 times>, "\031\000\000\005\4\001\000\001\004\000\002P1 '\000' <repeats 511963 times>, dcs_start_timer = 0 '\000', dcs_timeout_time = 0,
+  restart_update_pending = 0 '\000', sdk_app_id = 0, japi_client_name = '\000' <repeats 255 times>, japi_bulk_stats_flag = 0 '\000', internal_client = 0 '\000', internal_filter_idx = 0, internal_reason_info = {
+    reason = JUNOS_DFW_FILTER_NOT_FOUND, info = {term_conflict_err = {term1_namestr_key = 0x0, term2_namestr_key = 0x0}, config_err = {object_namestr_key = 0x0}}}, defer_compile_attach = 0 '\000', pending_msg = 0 '\000',
+  pending_msg_buf = '\000' <repeats 511999 times>, pending_msg_size = 0, deferred_count = 0, changed_filter_head = {tqh_first = 0x0, tqh_last = 0xa14e19c}}
+  
+(gdb) p session->trans
+$22 = (dfwdlib_trans_t *) 0x0
+
+(gdb) p session->client_id_list[0] == DFWD_CLIENT_ID_TEST_CLIENT1
+$24 = 1
+(gdb) p session->client_id_list[1] == DFWD_CLIENT_ID_TEST_CLIENT2
+$25 = 1
+(gdb) p session->client_id_list[0]
+$26 = 34
+(gdb) p session->client_id_list[1]
+$27 = 35
+
+PR 1340593 - test with spirent to see if port-except works
+or it could be bgp issue
+
+
+            if ((family == DAF_VPLS) &&
+11323                 ((match_data->dmi_match_type == DVPLS_USER_VLAN_PRIORITY) ||
+11324                 (match_data->dmi_match_type == DVPLS_LEARN_VLAN_PRIORITY))) {
+11325                 filter->df_flags3 |= DFW_FLAGS3_VPLS_CCC_VLAN_PRI_PRESENT;
+
+from:
+hoplimit,
+traffic-type
+ip-version
+ipver_v6_match
+
+action:
+next-interface
+three-color-policer
+
+
+same UI macro
+
+regress@zee# run show chassis fpc
+                     Temp  CPU Utilization (%)   CPU Utilization (%)  Memory    Utilization (%)
+Slot State            (C)  Total  Interrupt      1min   5min   15min  DRAM (MB) Heap     Buffer
+  0  Empty
+  1  Online            34     11          0       12     11     11    1024       22         19
+  2  Online            37     12          0       12     12     12    2048       10         21
+  3  Online            44      5          0        4      4      4    1024        8         41
+  4  Online            34      9          0        9      9      9    1024       24         29
+  5  Online            34     12          0       11     11     11    1024       24         29
+
+
+
+[edit]
+regress@zee# set interfaces xe-111/0/0.0 family inet filter input f
+
+
+
+
+
+
+====
+
+[edit]
+regress@zee# show firewall
+family inet {
+    filter f {
+        interface-specific;
+        term t {
+            then {
+                count garbage;
+                accept;
+            }
+        }
+    }
+}
+
+[edit]
+regress@zee# run show firewall
+
+Filter: __default_bpdu_filter__
+
+Filter: f-xe-111/0/0.0-i
+Counters:
+Name                                                Bytes              Packets
+garbage-xe-111/0/0.0-i                                  0                    0
+
+Filter: f-xe-5/0/0.0-i
+Counters:
+Name                                                Bytes              Packets
+garbage-xe-5/0/0.0-i                                    0                    0
+
+Filter: f-xe-65/0/0.0-i
+Counters:
+Name                                                Bytes              Packets
+garbage-xe-65/0/0.0-i                                   0                    0
+
+parse_interface
+
+
+policer limit
+hierachical policer limit
+
+
+r0 bmw
+fail 18.1R1.5; 18.2-20180210_dev_common.1;
+work 18.2-20180308_dev_common.1
+
+
+own configuration
+
+
+set firewall family inet filter Loopback-reject term reject_icmp from packet-length 1000-1100
+set firewall family inet filter Loopback-reject term reject_icmp then count ipv4_icmp_rejected
+set firewall family inet filter Loopback-reject term reject_icmp then accept
+set firewall family inet filter Loopback-reject term def then count def_v4
+set firewall family inet filter Loopback-reject term def then accept
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 from packet-length 1100-1300
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then count ipv6_icmp_rejected
+set firewall family inet6 filter Loopback-reject_v6 term reject_icmp6 then accept
+set firewall family inet6 filter Loopback-reject_v6 term def then count dev_v6
+set firewall family inet6 filter Loopback-reject_v6 term def then accept
+delete interfaces et-0/0/10:0
+set interfaces et-0/0/10:0 unit 0 family inet address 11.1.1.1/24
+set interfaces et-0/0/10:0 unit 0 family inet6 address 9020::1/64
+set interfaces lo0 unit 0 family inet filter input Loopback-reject
+set interfaces lo0 unit 0 family inet6 filter input Loopback-reject_v6
+
+r1 suzuki
+set firewall family inet filter tt term 1 from protocol icmp
+set firewall family inet filter tt term 1 from icmp-type unreachable
+set firewall family inet filter tt term 1 from icmp-code communication-prohibited-by-filtering
+set firewall family inet filter tt term 1 then count icmp_msg_v4
+set firewall family inet filter tt term def then count def_v4
+set firewall family inet filter tt term def then accept
+set firewall family inet6 filter aa term 1 from next-header icmp6
+set firewall family inet6 filter aa term 1 from icmp-type destination-unreachable
+set firewall family inet6 filter aa term 1 from icmp-code administratively-prohibited
+set firewall family inet6 filter aa term 1 then count icmp6_msg_v6
+set firewall family inet6 filter aa term def then count def_v6
+set firewall family inet6 filter aa term def then accept
+delete interfaces xe-1/0/9
+set interfaces xe-1/0/9 unit 0 family inet address 11.1.1.2/24
+set interfaces xe-1/0/9 unit 0 family inet6 address 9020::2/64
+set interfaces xe-1/0/9 unit 0 family inet filter input tt
+set interfaces xe-1/0/9 unit 0 family inet6 filter input aa
+
+check1 - check connection OK
+[R1 suzuki] [cmd] ping 11.1.1.1 count 5 rapid
+
+step2 - set reject action
+[R0 bmw] [cmd] set firewall family inet filter Loopback-reject term reject_icmp then reject
+[R0 bmw] [cmd] commit
+[R1 suzuki] [cmd] commit
+
+check3 - check connection and reject counter
+[R1 suzuki] [cmd] clear firewall all
+[R0 bmw] [cmd] clear firewall all
+[R1 suzuki] [cmd] ping 11.1.1.1 size 1030 count 17 rapid
+[R0 bmw] [cmd] show firewall filter Loopback-reject
+[R1 suzuki] [cmd] show firewall filter tt    <<< issue in fail log here, counter not incrementing for icmp_msg_v4
+
+step4 - cleanup, reset action to accept - not affecting our failure
+[R0 bmw] [cmd] set firewall family inet filter Loopback-reject term reject_icmp then accept
+[R0 bmw] [cmd] commit
+[R1 suzuki] [cmd] commit
+regress@zee> show log messages| grep PRFDU
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-0/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-5/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-6/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-64/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-65/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-111/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-254/0/0 PASS
+Mar 12 00:32:30  zee dfwd[25693]: PRFDU xe-255/0/0 FAIL
+
+junos_product_info_is_virtual_fpc_enabled
+junos_product_info_get_router_min_virtual_fpc_slot
+junos_product_info_get_router_max_virtual_fpc_slot
+root@zee:/var/home/regress # sysctl -a | grep "net.ep_fpc_max"
+net.ep_fpc_max: 254
+root@zee:/var/home/regress # sysctl -a | grep "net.ep_fpc_min"
+net.ep_fpc_min: 65
+
+844	    if (junos_product_info_is_virtual_fpc_enabled()) {
+845		is_virtual_fpc = _parse_integer(first_num, &cp, ifflags, str,
+846						first_tag, errmsg, errmsgsize,
+847			junos_product_info_get_router_min_virtual_fpc_slot(),
+848		junos_product_info_get_router_max_virtual_fpc_slot() + 1) ?
+
+876		if (junos_product_info_is_virtual_fpc_enabled()) {
+877		    is_virtual_fpc = _parse_integer(first_num, &cp, ifflags, str,
+878						    "fpc errmsg, errmsgsize,
+879			junos_product_info_get_router_min_virtual_fpc_slot(),
+880		junos_product_info_get_router_max_virtual_fpc_slot() + 1) ?
+881		    0 : 1;
+882		}
+883
+884		if (!is_virtual_fpc &&
+885		    _parse_integer(&intf_parms->ipi_fpc, &cp, ifflags, str,
+886				   "fpc errmsg, errmsgsize, 0,
+887				   mchassis_get_router_max_fpc_slots()))
+888		    return PARSE_ERR_RESTRICT;
+889
+890		if (parse_field_is_wild(intf_parms->ipi_fpc)) {
+891		    SNPRINTF("wildcarding not allowed for fpc when lcc"
+892			     " is specified");
+893		    return PARSE_ERR_RESTRICT;
+894		}
+
+dev_common pan release
+...
