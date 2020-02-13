@@ -1,0 +1,22 @@
+
+Student 1000:
+91:A-, 92:A-, 85:B, 58:F, 87:B+, 75:C, 89:B+, 97:A+, 79:C+, 65:D, 88:B+, 72:C-
+min 58, max 97, average 81
+
+Student 1001:
+81:B-, 94:A-, 90:A-, 61:D, 72:C-, 75:C, 68:D, 77:C+, 75:C, 49:F, 87:B+, 79:C+
+min 49, max 94, average 75
+
+Student 1002:
+65:D, 64:D, 62:D, 51:F, 44:F, 70:C-, 81:B-, 72:C-, 85:B, 78:C+, 77:C+, 75:C
+min 44, max 85, average 68
+
+Student 1003:
+79:C+, 87:B+, 69:D, 55:F, 88:B+, 62:D, 71:C-, 74:C-, 80:B-, 71:C-, 62:D, 85:B
+min 55, max 88, average 73
+
+Student 1004:
+68:D, 87:B+, 75:C, 89:B+, 97:A+, 79:C+, 65:D, 48:F, 72:C-, 61:D, 64:D, 90:A-
+min 48, max 97, average 74
+
+Class: min 44, max 97, average 74

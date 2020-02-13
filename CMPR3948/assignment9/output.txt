@@ -1,0 +1,13 @@
+Enque 25 -> Queue: 25 
+Enque 37 -> Queue: 25 37 
+Enque 45 -> Queue: 25 37 45 
+Enque 52 -> Queue: 25 37 45 52 
+Enque 98 -> Queue: 25 37 45 52 98 
+Deque    -> Queue: 37 45 52 98 
+Deque    -> Queue: 45 52 98 
+Deque    -> Queue: 52 98 
+Enque 36 -> Queue: 52 98 36 
+Enque 12 -> Queue: 52 98 36 12 
+Deque    -> Queue: 98 36 12 
+Deque    -> Queue: 36 12 
+Enque 69 -> Queue: 36 12 69 

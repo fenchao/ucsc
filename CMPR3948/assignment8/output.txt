@@ -1,0 +1,64 @@
+{ Push  Stack {
+x Ignore
++ Ignore
+( Push  Stack {(
+y Ignore
+- Ignore
+[ Push  Stack {([
+a Ignore
++ Ignore
+b Ignore
+] Pop   Stack {([ & ] match
+) Pop   Stack {( & ) match
+* Ignore
+( Push  Stack {(
+c Ignore
+- Ignore
+[ Push  Stack {([
+( Push  Stack {([(
+d Ignore
++ Ignore
+e Ignore
+) Pop   Stack {([( & ) match
+] Pop   Stack {([ & ] match
++ Ignore
+k Ignore
+) Pop   Stack {( & ) match
+} Pop   Stack { & } match
+/ Ignore
+( Push  Stack (
+h Ignore
+- Ignore
+( Push  Stack ((
+j Ignore
+- Ignore
+( Push  Stack (((
+k Ignore
+- Ignore
+[ Push  Stack ((([
+l Ignore
+- Ignore
+n Ignore
+] Pop   Stack ((([ & ] match
+) Pop   Stack ((( & ) match
+) Pop   Stack (( & ) match
+) Pop   Stack ( & ) match
++ Ignore
+{ Push  Stack {
+u Ignore
++ Ignore
+[ Push  Stack {[
+m Ignore
+* Ignore
+( Push  Stack {[(
+p Ignore
+- Ignore
+q Ignore
+) Pop   Stack {[( & ) match
+] Pop   Stack {[ & ] match
+/ Ignore
+r Ignore
+} Pop   Stack { & } match
+
+ Ignore
+Valid Expression!

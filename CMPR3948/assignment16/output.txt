@@ -1,0 +1,134 @@
+Round 0
+
+Read input:
+A 2 3 4 5 6 7 8 9 10 J Q K 
+Temporary store input to stack:
+K Q J 10 9 8 7 6 5 4 3 2 A 
+
+Shuffle:
+Read  K               Deck: K 
+Move  K (bottom->pop) Deck: K 
+Read  Q               Deck: Q K 
+Move  K (bottom->pop) Deck: K Q 
+Read  J               Deck: J K Q 
+Move  Q (bottom->pop) Deck: Q J K 
+Read 10               Deck: 10 Q J K 
+Move  K (bottom->pop) Deck: K 10 Q J 
+Read  9               Deck: 9 K 10 Q J 
+Move  J (bottom->pop) Deck: J 9 K 10 Q 
+Read  8               Deck: 8 J 9 K 10 Q 
+Move  Q (bottom->pop) Deck: Q 8 J 9 K 10 
+Read  7               Deck: 7 Q 8 J 9 K 10 
+Move 10 (bottom->pop) Deck: 10 7 Q 8 J 9 K 
+Read  6               Deck: 6 10 7 Q 8 J 9 K 
+Move  K (bottom->pop) Deck: K 6 10 7 Q 8 J 9 
+Read  5               Deck: 5 K 6 10 7 Q 8 J 9 
+Move  9 (bottom->pop) Deck: 9 5 K 6 10 7 Q 8 J 
+Read  4               Deck: 4 9 5 K 6 10 7 Q 8 J 
+Move  J (bottom->pop) Deck: J 4 9 5 K 6 10 7 Q 8 
+Read  3               Deck: 3 J 4 9 5 K 6 10 7 Q 8 
+Move  8 (bottom->pop) Deck: 8 3 J 4 9 5 K 6 10 7 Q 
+Read  2               Deck: 2 8 3 J 4 9 5 K 6 10 7 Q 
+Move  Q (bottom->pop) Deck: Q 2 8 3 J 4 9 5 K 6 10 7 
+Read  A               Deck: A Q 2 8 3 J 4 9 5 K 6 10 7 
+Move  7 (bottom->pop) Deck: 7 A Q 2 8 3 J 4 9 5 K 6 10 
+
+Shuffled Deck: 7 A Q 2 8 3 J 4 9 5 K 6 10 
+
+Open:
+Move  7 (top->bottom) Deck: A Q 2 8 3 J 4 9 5 K 6 10 7 
+Open  A               Deck: Q 2 8 3 J 4 9 5 K 6 10 7 
+Move  Q (top->bottom) Deck: 2 8 3 J 4 9 5 K 6 10 7 Q 
+Open  2               Deck: 8 3 J 4 9 5 K 6 10 7 Q 
+Move  8 (top->bottom) Deck: 3 J 4 9 5 K 6 10 7 Q 8 
+Open  3               Deck: J 4 9 5 K 6 10 7 Q 8 
+Move  J (top->bottom) Deck: 4 9 5 K 6 10 7 Q 8 J 
+Open  4               Deck: 9 5 K 6 10 7 Q 8 J 
+Move  9 (top->bottom) Deck: 5 K 6 10 7 Q 8 J 9 
+Open  5               Deck: K 6 10 7 Q 8 J 9 
+Move  K (top->bottom) Deck: 6 10 7 Q 8 J 9 K 
+Open  6               Deck: 10 7 Q 8 J 9 K 
+Move 10 (top->bottom) Deck: 7 Q 8 J 9 K 10 
+Open  7               Deck: Q 8 J 9 K 10 
+Move  Q (top->bottom) Deck: 8 J 9 K 10 Q 
+Open  8               Deck: J 9 K 10 Q 
+Move  J (top->bottom) Deck: 9 K 10 Q J 
+Open  9               Deck: K 10 Q J 
+Move  K (top->bottom) Deck: 10 Q J K 
+Open 10               Deck: Q J K 
+Move  Q (top->bottom) Deck: J K Q 
+Open  J               Deck: K Q 
+Move  K (top->bottom) Deck: Q K 
+Open  Q               Deck: K 
+Move  K (top->bottom) Deck: K 
+Open  K               Deck: 
+
+Opened Deck: A 2 3 4 5 6 7 8 9 10 J Q K 
+
+Round 1
+
+Read input:
+Q 2 3 A 5 6 J 8 9 4 7 K 10 
+Temporary store input to stack:
+10 K 7 4 9 8 J 6 5 A 3 2 Q 
+
+Shuffle:
+Read 10               Deck: 10 
+Move 10 (bottom->pop) Deck: 10 
+Read  K               Deck: K 10 
+Move 10 (bottom->pop) Deck: 10 K 
+Read  7               Deck: 7 10 K 
+Move  K (bottom->pop) Deck: K 7 10 
+Read  4               Deck: 4 K 7 10 
+Move 10 (bottom->pop) Deck: 10 4 K 7 
+Read  9               Deck: 9 10 4 K 7 
+Move  7 (bottom->pop) Deck: 7 9 10 4 K 
+Read  8               Deck: 8 7 9 10 4 K 
+Move  K (bottom->pop) Deck: K 8 7 9 10 4 
+Read  J               Deck: J K 8 7 9 10 4 
+Move  4 (bottom->pop) Deck: 4 J K 8 7 9 10 
+Read  6               Deck: 6 4 J K 8 7 9 10 
+Move 10 (bottom->pop) Deck: 10 6 4 J K 8 7 9 
+Read  5               Deck: 5 10 6 4 J K 8 7 9 
+Move  9 (bottom->pop) Deck: 9 5 10 6 4 J K 8 7 
+Read  A               Deck: A 9 5 10 6 4 J K 8 7 
+Move  7 (bottom->pop) Deck: 7 A 9 5 10 6 4 J K 8 
+Read  3               Deck: 3 7 A 9 5 10 6 4 J K 8 
+Move  8 (bottom->pop) Deck: 8 3 7 A 9 5 10 6 4 J K 
+Read  2               Deck: 2 8 3 7 A 9 5 10 6 4 J K 
+Move  K (bottom->pop) Deck: K 2 8 3 7 A 9 5 10 6 4 J 
+Read  Q               Deck: Q K 2 8 3 7 A 9 5 10 6 4 J 
+Move  J (bottom->pop) Deck: J Q K 2 8 3 7 A 9 5 10 6 4 
+
+Shuffled Deck: J Q K 2 8 3 7 A 9 5 10 6 4 
+
+Open:
+Move  J (top->bottom) Deck: Q K 2 8 3 7 A 9 5 10 6 4 J 
+Open  Q               Deck: K 2 8 3 7 A 9 5 10 6 4 J 
+Move  K (top->bottom) Deck: 2 8 3 7 A 9 5 10 6 4 J K 
+Open  2               Deck: 8 3 7 A 9 5 10 6 4 J K 
+Move  8 (top->bottom) Deck: 3 7 A 9 5 10 6 4 J K 8 
+Open  3               Deck: 7 A 9 5 10 6 4 J K 8 
+Move  7 (top->bottom) Deck: A 9 5 10 6 4 J K 8 7 
+Open  A               Deck: 9 5 10 6 4 J K 8 7 
+Move  9 (top->bottom) Deck: 5 10 6 4 J K 8 7 9 
+Open  5               Deck: 10 6 4 J K 8 7 9 
+Move 10 (top->bottom) Deck: 6 4 J K 8 7 9 10 
+Open  6               Deck: 4 J K 8 7 9 10 
+Move  4 (top->bottom) Deck: J K 8 7 9 10 4 
+Open  J               Deck: K 8 7 9 10 4 
+Move  K (top->bottom) Deck: 8 7 9 10 4 K 
+Open  8               Deck: 7 9 10 4 K 
+Move  7 (top->bottom) Deck: 9 10 4 K 7 
+Open  9               Deck: 10 4 K 7 
+Move 10 (top->bottom) Deck: 4 K 7 10 
+Open  4               Deck: K 7 10 
+Move  K (top->bottom) Deck: 7 10 K 
+Open  7               Deck: 10 K 
+Move 10 (top->bottom) Deck: K 10 
+Open  K               Deck: 10 
+Move 10 (top->bottom) Deck: 10 
+Open 10               Deck: 
+
+Opened Deck: Q 2 3 A 5 6 J 8 9 4 7 K 10 
+

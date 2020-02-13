@@ -1,0 +1,213 @@
+
+how many disks to play hanoi: 4
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Final Move disk 4 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Final Move disk 3 from B to C
+Move disk 1 from A to B
+Final Move disk 2 from A to C
+Final Move disk 1 from B to C
+
+how many disks to play hanoi: 5
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+Move disk 4 from A to B
+Move disk 1 from C to B
+Move disk 2 from C to A
+Move disk 1 from B to A
+Move disk 3 from C to B
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Final Move disk 5 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+Move disk 3 from B to A
+Move disk 1 from C to B
+Move disk 2 from C to A
+Move disk 1 from B to A
+Final Move disk 4 from B to C
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Final Move disk 3 from A to C
+Move disk 1 from B to A
+Final Move disk 2 from B to C
+Final Move disk 1 from A to C
+
+how many disks to play hanoi: 6
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 4 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 3 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 5 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 3 from C to A
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 4 from C to B
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Final Move disk 6 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 3 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 4 from B to A
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 3 from C to A
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Final Move disk 5 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Final Move disk 4 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Final Move disk 3 from B to C
+Move disk 1 from A to B
+Final Move disk 2 from A to C
+Final Move disk 1 from B to C
+
+how many disks to play hanoi: 5
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+Move disk 4 from A to B
+Move disk 1 from C to B
+Move disk 2 from C to A
+Move disk 1 from B to A
+Move disk 3 from C to B
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Final Move disk 5 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+Move disk 3 from B to A
+Move disk 1 from C to B
+Move disk 2 from C to A
+Move disk 1 from B to A
+Final Move disk 4 from B to C
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Final Move disk 3 from A to C
+Move disk 1 from B to A
+Final Move disk 2 from B to C
+Final Move disk 1 from A to C
+
+how many disks to play hanoi: 6
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 4 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 3 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 5 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 3 from C to A
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 4 from C to B
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Final Move disk 6 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Move disk 3 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 4 from B to A
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Move disk 3 from C to A
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Final Move disk 5 from B to C
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+Final Move disk 4 from A to C
+Move disk 1 from B to C
+Move disk 2 from B to A
+Move disk 1 from C to A
+Final Move disk 3 from B to C
+Move disk 1 from A to B
+Final Move disk 2 from A to C
+Final Move disk 1 from B to C

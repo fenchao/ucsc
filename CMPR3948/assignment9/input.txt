@@ -1,0 +1,4 @@
+Choice: E  E  E  E  E  D  D  D  E  E  D
+Data:   25 37 45 52 98          36 12
+Choice: D  E
+Data:      69
