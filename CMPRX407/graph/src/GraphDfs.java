@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -41,19 +40,21 @@ class GraphDfs{
 
 		//WRITE YOUR CODE
 		cycle[0] = false;
-		work[0] = -1; // starting of set, starting node is not done by work of an edge
+		work[0] = 0;
 		dfsIdx = g.getnumV();
 		visit = new Visit[g.getnumV()];
 		Arrays.fill(this.visit, Visit.NONE);
 		
-		dfs(g.graphHasNode(start));
+		int from = g.graphHasNode(start);
+		Graph.u.myassert(from != -1);
+		dfs(from);
 		
 		if (g.isUndirectedGraph()) {
 			cycle[0] = g.getnumE()/2 > g.getnumV() - 1;
 		}
 		size[0] = g.getnumV() - dfsIdx;
 		
-		System.out.println("\n" + t);
+		System.out.println("\n" + this.t);
 		System.out.printf("Num Verticies = %d\n", g.getnumV());
 		System.out.printf("Num Edges     = %d\n", g.getnumE());
 		System.out.printf("Work done     = %d\n", work[0]);
@@ -73,12 +74,11 @@ class GraphDfs{
 	}
 	
 	private void dfs(int from) {
-		++work[0]; // dfs per edge except start
 		switch(visit[from]) {
 		case NONE:
-			++work[0]; // actually visiting an node
 			visit[from] = Visit.PARTIAL;
 			int f = g.numFanout(from);
+			work[0] += 1+f;
 			for(int e = 0; e < f; ++e) {
 				int to = g.getNodeFanout(from, e);
 				dfs(to);
