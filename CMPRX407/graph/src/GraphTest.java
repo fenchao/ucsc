@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 
 class GraphTest{
-	private static final String inputFileBase = "/Users/fdu/Dropbox/course/CMPRX407/graph/graphdata/input/";
-	private static final String outputFileBase = "/Users/fdu/Dropbox/course/CMPRX407/graph/graphdata/output/";
+	private static final String inputFileBase = "graphdata/input/";
+	private static final String outputFileBase = "graphdata/output/";
 	/*----------YOU CANNOT CHANGE ANYTHING BELOW ----------------------------*/
 	private static final IntUtil u = new IntUtil();
 	public enum GraphType {
@@ -476,23 +476,17 @@ class GraphTest{
 	
 	private void testBed() {
 //		testGraphRepresentation() ;
-		
-		testDFS();
-/*		
+//		testDFS();
 		testBFS() ;
 		testSnakeAndLadder();
+//		testToplogicalSort() ;
+//		testDagLongestPath() ;
+//		testDijkstra() ;
+//		testDPShortestPath() ;
+//		testBF() ;
+//		testTSP() ;
+//		testPrim() ;
 		
-		testToplogicalSort() ;
-		testDagLongestPath() ;
-	
-	  testDijkstra() ;
-		
-		testDPShortestPath() ;
-	
-		testBF() ;
-		testTSP() ;
-		testPrim() ;
-		*/
 	}
 	
 	public static void main(String[] args) {
