@@ -33,20 +33,18 @@ class GraphSnakeandLadderBuilder{
 		//WRITE YOUR CODE
 		HashMap<Integer, Integer> mp = new HashMap<>();
 		for (int[] ladder : l) {
-			if (ladder[0] > ladder[1]) {
-				int tmp = ladder[0];
-				ladder[0] = ladder[1];
-				ladder[1] = tmp;
+			if (ladder[0] < ladder[1]) {
+				mp.put(ladder[0], ladder[1]);
+			} else {
+				mp.put(ladder[1], ladder[0]);
 			}
-			mp.put(ladder[0], ladder[1]);
 		}
 		for (int[] snake : s) {
-			if (snake[0] < snake[1]) {
-				int tmp = snake[0];
-				snake[0] = snake[1];
-				snake[1] = tmp;
+			if (snake[0] > snake[1]) {
+				mp.put(snake[0], snake[1]);
+			} else {
+				mp.put(snake[1], snake[0]);
 			}
-			mp.put(snake[0], snake[1]);
 		}
 
 		double w = 0;
@@ -56,9 +54,7 @@ class GraphSnakeandLadderBuilder{
 			}
 			int from = g.insertOrFind(Integer.toString(i), false);
 			for(int j = 1; j <= 6 && i+j <= n; ++j) {
-				int to = mp.containsKey(i+j) ?
-						g.insertOrFind(Integer.toString(mp.get(i+j)), false) :
-						g.insertOrFind(Integer.toString(i+j), false);
+				int to = g.insertOrFind(Integer.toString( mp.containsKey(i+j) ? mp.get(i+j) : i+j ), false);
 				g.createEdge(from, to, w, true);
 				g.createEdge(to, from, w, false);
 			}

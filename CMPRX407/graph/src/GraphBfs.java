@@ -79,8 +79,8 @@ class GraphBfs{
 
 		// Get max string length for padding
 		int m = 0;
-		for(int i = 0; i < numv; ++i) {
-			int l = g.getNodeRealName(i).length();
+		for(int i = 0; i < size[0]; ++i) {
+			int l = g.getNodeRealName(bfsorder[i]).length();
 			if (m < l) {
 				m = l;
 			}
@@ -100,13 +100,13 @@ class GraphBfs{
 			System.out.printf(" %"+ m + "s", g.getRealName(bfspath[i]));
 		}
 		for(int i  = 0; i < size[0]; ++i) {
-			int[] shortestPath = new int[level[bfsorder[i]]+1];
 			int cur = bfsorder[i];
+			int[] shortestPath = new int[level[cur]+1];
 			for(int j = shortestPath.length-1; j >= 0; --j) {
 				shortestPath[j] = cur;
 				cur = path[cur];
 			}
-			for(int j = 0 ; j < shortestPath.length; ++j) {
+			for(int j = 0; j < shortestPath.length; ++j) {
 				System.out.printf("%s%s", j == 0 ? "\n" : "->", g.getRealName(shortestPath[j]));
 			}
 		}
