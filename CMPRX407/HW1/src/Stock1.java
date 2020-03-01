@@ -73,10 +73,10 @@ class Stock1 extends Stock1Base{
 	}
 	
 	private void nlognTimelognSpace(int start, int end) {
-		++numDivide;
 		if (start == end) {
 			return;
 		}
+		++numDivide;
 		int mid = (end-start)/2+start;
 		nlognTimelognSpace(start, mid);
 		nlognTimelognSpace(mid+1, end);
@@ -103,12 +103,12 @@ class Stock1 extends Stock1Base{
 	}
 	
 	private int[] nTimelognSpace(int start, int end) {
-		++numDivide;
-		++numConquer;
 		int[] cross = {start, start}; // 0: minDay, 1: maxDay
 		if (start == end) {
 			return cross;
 		}
+		++numDivide;
+		++numConquer;
 		int mid = (end-start)/2+start;
 		int[] left = nTimelognSpace(start, mid);
 		int[] right = nTimelognSpace(mid+1, end);

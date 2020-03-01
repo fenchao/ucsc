@@ -477,11 +477,11 @@ class GraphTest{
 	private void testBed() {
 //		testGraphRepresentation() ;
 //		testDFS();
-		testBFS() ;
-		testSnakeAndLadder();
+//		testBFS() ;
+//		testSnakeAndLadder();
 //		testToplogicalSort() ;
 //		testDagLongestPath() ;
-//		testDijkstra() ;
+		testDijkstra() ;
 //		testDPShortestPath() ;
 //		testBF() ;
 //		testTSP() ;
