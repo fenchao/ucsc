@@ -1,0 +1,5 @@
+digraph g {
+  label = " aba "
+  "3\n3" -> "2\n1\nb" [color=red]
+  "3\n3" -> "1\n2\na" [color=blue]
+}

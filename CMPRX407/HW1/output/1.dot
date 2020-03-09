@@ -1,0 +1,4 @@
+digraph g {
+  label = " a "
+  "2\n1" -> "1\n1\na" [color=red]
+}
