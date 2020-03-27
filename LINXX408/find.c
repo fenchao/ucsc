@@ -57,6 +57,7 @@ int main(int argc, char **argv) {
 
 		tinfo[thisThread].tid=(pthread_t *)malloc(sizeof(pthread_t));	
 		tinfo[thisThread].pathname=malloc(BUFSZ);	
+		*tinfo[thisThread].tid=pthread_self(); // avoid default garbage value which affects our search
 
 		realpath(argv[1],tinfo[thisThread].pathname);
 		tinfo[thisThread].currThread=thisThread;
@@ -169,7 +170,7 @@ void *check_dirent(void *arg) {
 	for(i=0;i<MAXNUMTHREADS;i++) {
 		if (childThreads[i]) {
 			pthread_join(*tinfo[i].tid,(void **)(int *)&(tinfo[i].thread_rc));
-			*tinfo[i].tid = 0; // tid can be reused after join and affect our searching. reset tid after usage
+			*tinfo[i].tid = tinfo->tid; // tid can be reused after join and affect our search. use last joined main's pid to reset
 			rc+=(int)tinfo[i].thread_rc;
 		}
 	}
