@@ -16,9 +16,13 @@
 
 void do_cmd(char *buf, int len, int linenum, char *errbuf);
 int parse_cmd(char *buf, char **vbuf, char *errbuf);
-int builtin_cmd(char **argv, int linenum);
+int builtin_cmd(char **argv, int linenum, int argc);
 int process_cmd(char **argv, int linenum);
 int printwaitstatus(FILE *wfp, int pid, int st);
+
+int mycat(int argc, char *argv[]);
+int myls(int argc, char *argv[]);
+int mywc(int argc, char *argv[]);
 
 int printwaitstatus(FILE *wfp, int pid, int st) {
 
@@ -42,7 +46,7 @@ int printwaitstatus(FILE *wfp, int pid, int st) {
 }
 	
 
-int builtin_cmd(char **argv, int linenum) {
+int builtin_cmd(char **argv, int linenum, int argc) {
 
 	int st;
 
@@ -63,6 +67,18 @@ int builtin_cmd(char **argv, int linenum) {
 	else if (strcmp(*argv,"hello") ==0) {
 			fprintf(stderr,"\nHello! from process '%d'. (Line=%d)\n",
 				getpid(),linenum);
+		return 1;
+	}
+	else if (strcmp(*argv,"mycat") ==0) {
+		mycat(argc, argv);
+		return 1;
+	}
+	else if (strcmp(*argv,"mywc") ==0) {
+		mywc(argc, argv);
+		return 1;
+	}
+	else if (strcmp(*argv,"myls") ==0) {
+		myls(argc, argv);
 		return 1;
 	}
 
@@ -134,7 +150,7 @@ void do_cmd(char *buf, int len, int linenum, char *errbuf) {
 	}
 	else {
 		//execute the command/input
-		if (!builtin_cmd(vbuf,linenum) ) {
+		if (!builtin_cmd(vbuf,linenum,numargs) ) {
 			process_cmd(vbuf,linenum);
 		}
 	}
